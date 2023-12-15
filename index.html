@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب التوظيف</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            direction: rtl; /* Right-to-Left text direction for Arabic */
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 50px;
+            text-align: center;
+            background: #fff; /* White background for sections */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd; /* Border color */
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Creative Design Elements */
+        h2 {
+            color: #4CAF50; /* Green color for heading */
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .form-instructions {
+            font-size: 14px;
+            color: #777;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Form Section -->
+    <div class="section form-section">
+        <h2>طلب التوظيف</h2>
+        <p>
+            ترحب بكم مؤسسة بشرى الخير للتجارة والتسويق ( تطبيق سواب جو )<br>
+            ترغب المؤسسة بتوظيف مندوبي تسويق للعمل الميداني بنظام العمولة، <br>تتلخص مهمة المندوب بزيارة الشركات والمحال التجارية من كافة القطاعات التجارية لتوقيع عقود تسويق خدماتهم ومنتجاتهم عن طريق تطبيق (سواب جو) بنظام (التسويق بالعمولة).<br>
+           للمهتمين ومزيد من التفاصيل يرجى تعبئة البيانات التالية:
+        </p>
+        <div class="form-container">
+            <form id="jobApplicationForm" method="post" action="https://script.google.com/macros/s/AKfycbzYwJ0bUKPlhPXZukvvbsf22zh1H7D69m0R13x_9vP-O97VrP3Y67J12V1-G-gSPT__0A/exec">
+                <input type="text" class="form-input" placeholder="الاسم الرباعي" required name="الاسم الرباعي"> 
+                <input type="tel" class="form-input" placeholder="رقم الموبايل" required name="رقم الموبايل">
+                <input type="text" class="form-input" placeholder="مكان السكن" required name="مكان السكن">
+                <input type="number" class="form-input" placeholder="العمر" required name="العمر">
+                <select class="form-input" required name="gender">
+                    <option value="" disabled selected>الجنس</option>
+                    <option value="male">ذكر</option>
+                    <option value="female">أنثى</option>
+                </select>
+                <button type="submit" class="form-button">إرسال</button>
+            </form>
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzYwJ0bUKPlhPXZukvvbsf22zh1H7D69m0R13x_9vP-O97VrP3Y67J12V1-G-gSPT__0A/exec';
+                const form = document.getElementById('jobApplicationForm');
+            
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                        .then(response => {
+                            // Display a success message
+                            alert('تم ارسال البيانات بنجاح');
+            
+                            // Refresh the page
+                            window.location.reload();
+                        })
+                        .catch(error => console.error('Error!', error.message));
+                });
+            </script>
+        </div>
+    </div>
+
+    
+    
+    
+</body>
+
+</html>
